@@ -22,8 +22,30 @@ Nickel (5¢)
 Penny (1¢)
 */
 
-const calculateChange = function (total, cash) {
-  // Your code here
+const calculateChange = function(total, cash) {
+  let change = cash - total;
+  const obj = {};
+
+  const denominations = {
+    twentyDollar: 2000,
+    tenDollar: 1000,
+    fiveDollar: 500,
+    twoDollar: 200,
+    oneDollar: 100,
+    quarter: 25,
+    dime: 10,
+    nickel: 5,
+    penny: 1
+  };
+
+  for (let key in denominations) {
+    if (change >= denominations[key]) {
+      obj[key] = Math.floor(change / denominations[key]); 
+      change %= denominations[key]; 
+    }
+  }
+
+  return obj;
 };
 
 console.log(calculateChange(1787, 2000)); // { twoDollar: 1, dime: 1, penny: 3 }
