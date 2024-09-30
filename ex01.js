@@ -7,8 +7,12 @@ Create a function named sumLargestNumbers that will receive an array of numbers 
 */
 
 const sumLargestNumbers = function (data) {
-  // Put your solution here
-};
+  dataDescArr = data.sort((a,b) => b - a)
+  for (let i = 0; i < dataDescArr.length; i++){
+    let sum = dataDescArr[0] +dataDescArr[1]
+    return sum
+  }
+}
 
 console.log(sumLargestNumbers([1, 10])); // 11
 console.log(sumLargestNumbers([1, 2, 3])); // 5
