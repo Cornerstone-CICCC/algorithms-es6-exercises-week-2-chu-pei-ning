@@ -9,7 +9,14 @@ Create a function named camelCase that will convert a string to camel case, and 
 */
 
 const camelCase = function (input) {
-  // Your code here
+  const letter = input.split(" ")
+  const newLetters = [letter[0]]
+  for(let i = 1; i < letter.length; i++){
+    const newLetter = letter[i].charAt(0).toUpperCase() + letter[i].slice(1)
+    newLetters.push(newLetter)
+  }
+  cameLetters = newLetters.join("")
+  return cameLetters
 };
 
 console.log(camelCase("this is a string")); // thisIsAString
