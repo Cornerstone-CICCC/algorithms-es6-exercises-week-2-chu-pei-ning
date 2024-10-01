@@ -23,7 +23,27 @@ Create a function named squareCode that will receive a message, and return the s
 */
 
 const squareCode = function (message) {
-  // Put your solution here
+  const newMessage = message.split(" ").join('')
+  const mathCeil = Math.ceil(Math.sqrt(newMessage.length)) // 無條件進位作為列長度
+
+  const messageArr = []
+  for (let i = 0; i < newMessage.length; i += mathCeil) {
+    messageArr.push(newMessage.slice(i, i + mathCeil))
+  }
+
+  let result = ''
+  for (let i = 0; i < mathCeil; i++) {
+    for (let j = 0; j < messageArr.length; j++) {
+      if (messageArr[j][i]) {
+        result += messageArr[j][i]
+      }
+    }
+    if (i !== mathCeil - 1) {
+      result += ' '
+    }
+  }
+
+  return result
 };
 
 console.log(squareCode("chill out")); // clu hlt io
