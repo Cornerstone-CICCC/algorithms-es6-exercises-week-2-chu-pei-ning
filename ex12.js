@@ -21,7 +21,20 @@ This one is a doozy! We might want to start by creating a helper function called
 */
 
 const chooseRecipe = function (bakeryA, bakeryB, recipes) {
-  // Code here!
+  const bakeryAB = [...bakeryA, ...bakeryB]
+  for (recipe of recipes) {
+    let ingredientItem = recipe.ingredients.length
+    let item = 0
+    recipe.ingredients.map( value => {
+      if(bakeryAB.includes(value)) {
+        item += 1
+      }
+    } )
+    if (ingredientItem === item) {
+      return recipe.name
+    }
+  }
+  return undefined
 };
 
 let bakeryA = ["saffron", "eggs", "tomato paste", "coconut", "custard"];
